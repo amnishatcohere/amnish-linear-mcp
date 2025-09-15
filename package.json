@@ -7,6 +7,7 @@
   "dependencies": {
     "@hono/mcp": "^0.1.4",
     "@linear/sdk": "^59.1.0",
+    "@mcp-ui/server": "^5.10.0",
     "@modelcontextprotocol/sdk": "^1.18.0",
     "dotenv": "^17.2.2",
     "hono": "^4.9.7",

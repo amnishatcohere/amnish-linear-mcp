@@ -1,6 +1,7 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { listIssuesTool } from "./tools/list-issues";
 import packageJson from "../../package.json";
+import { listIssuesHtmlTool } from "./ui-tools/list-issues";
 
 const MCP_SERVER_NAME = packageJson.name;
 export const MCP_SERVER_VERSION = packageJson.version;
@@ -21,4 +22,12 @@ server.tool(
   listIssuesTool.description,
   listIssuesTool.paramsSchemaOrAnnotations,
   listIssuesTool.callback
+);
+
+// List tickets tool (UI version)
+server.tool(
+  listIssuesHtmlTool.name,
+  listIssuesHtmlTool.description,
+  listIssuesHtmlTool.paramsSchemaOrAnnotations,
+  listIssuesHtmlTool.callback
 );

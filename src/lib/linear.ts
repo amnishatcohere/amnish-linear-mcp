@@ -28,5 +28,8 @@ export async function getMyIssues(oldest: string) {
     },
   });
 
-  return myIssues.nodes;
+  return {
+    issues: myIssues.nodes,
+    assignee: me.name,
+  };
 }

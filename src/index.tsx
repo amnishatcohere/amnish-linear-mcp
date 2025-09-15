@@ -1,8 +1,8 @@
 import { Hono } from "hono";
-import { View } from "./components/View";
 import { StreamableHTTPTransport } from "@hono/mcp";
 import { MCP_SERVER_VERSION, server } from "./mcp/server";
 import { configDotenv } from "dotenv";
+import { issuesRoute } from "./routes/issues";
 
 configDotenv();
 
@@ -15,18 +15,15 @@ app.get("/", (c) => {
   });
 });
 
-app.get("/test-jsx", (c) => {
-  return c.html(<View />);
-});
+app.route("/issues", issuesRoute);
 
-//#region MCP SETUP
-
+// MCP SETUP
 app.all("/mcp", async (c) => {
+  // `@hono/mcp` takes care of all the complicated dance of setting up stateful/stateless Streamable Http MCP servers.
+  // https://www.npmjs.com/package/@hono/mcp
   const transport = new StreamableHTTPTransport();
   await server.connect(transport);
   return transport.handleRequest(c);
 });
-
-//#endregion
 
 export default app;

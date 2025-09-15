@@ -15,14 +15,14 @@ export const listIssuesTool: McpTool<typeof ListIssuesInputSchema> = {
   description: "Lists all the linear tickets assigned to the user.",
   paramsSchemaOrAnnotations: ListIssuesInputSchema,
   async callback({ days }) {
-    const issues = await getMyIssues(getISODateDaysAgo(days));
+    const issuesInfo = await getMyIssues(getISODateDaysAgo(days));
     return {
       content: [
         {
           type: "resource",
           resource: {
             uri: `uri://list-linear-tickets-after-${getISODateDaysAgo(days)}`,
-            text: JSON.stringify(issues, null, 2),
+            text: JSON.stringify(issuesInfo, null, 2),
           },
         },
       ],

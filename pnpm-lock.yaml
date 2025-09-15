@@ -14,6 +14,9 @@ importers:
       '@linear/sdk':
         specifier: ^59.1.0
         version: 59.1.0
+      '@mcp-ui/server':
+        specifier: ^5.10.0
+        version: 5.10.0
       '@modelcontextprotocol/sdk':
         specifier: ^1.18.0
         version: 1.18.0
@@ -47,6 +50,9 @@ packages:
   '@linear/sdk@59.1.0':
     resolution: {integrity: sha512-i4WFY/Txht+bwS2PhyLHjZaLbIzTsvn9OExfRdGRQBIHqUXwS95OZNtyw11RwgZfgDE8PTJrWh0P/eBHUNfylA==}
     engines: {node: '>=12.x', yarn: 1.x}
+
+  '@mcp-ui/server@5.10.0':
+    resolution: {integrity: sha512-nFqI/dbyao1Lnm5LcCPimfwFHiKvJz6sUS0iVKv9FS3FzlicbCNW6mYmqV3lnv15x9/bRQMhE0Z7ZmxxuJbBZA==}
 
   '@modelcontextprotocol/sdk@1.18.0':
     resolution: {integrity: sha512-JvKyB6YwS3quM+88JPR0axeRgvdDu3Pv6mdZUy+w4qVkCzGgumb9bXG/TmtDRQv+671yaofVfXSQmFLlWU5qPQ==}
@@ -468,6 +474,12 @@ snapshots:
       isomorphic-unfetch: 3.1.0
     transitivePeerDependencies:
       - encoding
+
+  '@mcp-ui/server@5.10.0':
+    dependencies:
+      '@modelcontextprotocol/sdk': 1.18.0
+    transitivePeerDependencies:
+      - supports-color
 
   '@modelcontextprotocol/sdk@1.18.0':
     dependencies:
