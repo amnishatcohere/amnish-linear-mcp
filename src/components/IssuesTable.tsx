@@ -17,22 +17,41 @@ export const IssuesTable = ({
 
   return (
     <>
-      <h1>{viewTitle}</h1>
+      <h1 className="text-2xl font-bold mb-6">{viewTitle}</h1>
 
-      <table border={1}>
-        <thead>
-          <th>Title</th>
-          <th>Created at</th>
-          <th>State</th>
+      <table className="min-w-full border border-gray-200 rounded-lg shadow-sm">
+        <thead className="bg-gray-100">
+          <tr>
+            <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700 border-b">
+              Title
+            </th>
+            <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700 border-b">
+              Created at
+            </th>
+            <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700 border-b">
+              State
+            </th>
+          </tr>
         </thead>
         <tbody>
           {issues.map(async (issue) => {
             const state = await issue.state;
             return (
-              <tr key={issue.id}>
-                <td>{issue.title}</td>
-                <td>{issue.createdAt.toLocaleString()}</td>
-                <td>{state?.name || "Unknown"}</td>
+              <tr key={issue.id} className="hover:bg-gray-50 transition-colors">
+                <td className="px-4 py-2 border-b">
+                  <a
+                    href="javascript:void(0);"
+                    className="text-blue-600 hover:underline"
+                  >
+                    {issue.title}
+                  </a>
+                </td>
+                <td className="px-4 py-2 border-b text-gray-600">
+                  {issue.createdAt.toLocaleString()}
+                </td>
+                <td className="px-4 py-2 border-b">
+                  {state?.name || "Unknown"}
+                </td>
               </tr>
             );
           })}
