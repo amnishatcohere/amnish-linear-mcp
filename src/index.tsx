@@ -2,6 +2,9 @@ import { Hono } from "hono";
 import { View } from "./components/View";
 import { StreamableHTTPTransport } from "@hono/mcp";
 import { MCP_SERVER_VERSION, server } from "./mcp/server";
+import { configDotenv } from "dotenv";
+
+configDotenv();
 
 const app = new Hono();
 

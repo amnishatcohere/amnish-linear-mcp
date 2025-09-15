@@ -1,5 +1,5 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { listTicketsTool } from "./tools/list-tickets";
+import { listIssuesTool } from "./tools/list-issues";
 import packageJson from "../../package.json";
 
 const MCP_SERVER_NAME = packageJson.name;
@@ -17,8 +17,8 @@ export const server = new McpServer({
 
 // List tickets tool
 server.tool(
-  listTicketsTool.name,
-  listTicketsTool.description,
-  listTicketsTool.paramsSchemaOrAnnotations,
-  listTicketsTool.callback
+  listIssuesTool.name,
+  listIssuesTool.description,
+  listIssuesTool.paramsSchemaOrAnnotations,
+  listIssuesTool.callback
 );
